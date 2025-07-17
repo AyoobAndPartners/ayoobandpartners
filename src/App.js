@@ -1,16 +1,21 @@
-import React from 'react';
-import { Container } from '@mui/material';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import ProductSection from './components/ProductSection';
-import Testimonials from './components/Testimonials';
+import Home from './pages/Home';
+import Products from './pages/Products';
+import Testimonials from './pages/Testimonials';
+import Contact from './pages/Contact';
 
 function App() {
   return (
-    <Container>
+    <Router>
       <Header />
-      <ProductSection />
-      <Testimonials />
-    </Container>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/testimonials" element={<Testimonials />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </Router>
   );
 }
 

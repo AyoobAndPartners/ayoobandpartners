@@ -1,14 +1,20 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
-    <AppBar position="static" color="transparent" elevation={0}>
+    <AppBar position="sticky" color="default" elevation={1}>
       <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>Enrich20</Typography>
-        <Button href="#products">Products</Button>
-        <Button href="#testimonials">Testimonials</Button>
-        <Button href="mailto:support@enrich20.com" color="primary">Contact</Button>
+        <Typography variant="h5" sx={{ flexGrow: 1, fontWeight: 700, color: '#006064' }}>
+          Aqua Shield Oman
+        </Typography>
+        <Box sx={{ display: 'flex', gap: 2 }}>
+          <Button component={Link} to="/" color="inherit">Home</Button>
+          <Button component={Link} to="/products" color="inherit">Products</Button>
+          <Button component={Link} to="/testimonials" color="inherit">Testimonials</Button>
+          <Button component={Link} to="/contact" color="primary" variant="contained">Contact</Button>
+        </Box>
       </Toolbar>
     </AppBar>
   );
