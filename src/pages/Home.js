@@ -1,15 +1,15 @@
 import React from 'react';
-import { Container, Typography, Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Box } from '@mui/material';
+import Banner from '../components/Banner';
+import Features from '../components/Features';
 
-export default function Home() {
+function Home() {
   return (
-    <Container sx={{ textAlign: 'center', py: 10 }}>
-      <Typography variant="h3" fontWeight={600} color="primary.dark">Welcome to Aqua Shield Oman</Typography>
-      <Typography variant="h6" sx={{ mt: 2, color: 'text.secondary' }}>
-        Purity meets innovation. Explore our premium water purification solutions.
-      </Typography>
-      <Button component={Link} to="/products" variant="contained" sx={{ mt: 4 }}>Explore Products</Button>
-    </Container>
+    <Box>
+      <Banner />
+      <Features />
+    </Box>
   );
 }
+
+export default Home;
