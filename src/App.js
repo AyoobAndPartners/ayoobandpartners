@@ -6,6 +6,7 @@ import Testimonials from './pages/Testimonials';
 import Contact from './pages/Contact';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import About from './pages/About';
+import Footer from './pages/Footer';
 
 const theme = createTheme({
   palette: {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/about" element={<About />} />
         </Routes>
+        <Footer />
       </Router>
     </ThemeProvider>
   );

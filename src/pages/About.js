@@ -5,208 +5,145 @@ import {
   Typography,
   Grid,
   Card,
-  Chip,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
-  Paper
+  Chip,
+  Avatar,
 } from '@mui/material';
 import {
-  Water,
-  Home,
-  Business,
-  Factory,
-  Support,
-  CheckCircle,
-  LocationOn,
-  Settings,
-  Build
+  Water, Home, Factory, Business, CheckCircle, LocationOn, Settings, Build, Support,
 } from '@mui/icons-material';
 
 export default function About() {
   const keyPoints = [
-    {
-      icon: <LocationOn color="primary" />,
-      text: "Oman-based expert team"
-    },
-    {
-      icon: <Settings color="primary" />,
-      text: "Custom solutions for homes, businesses & factories"
-    },
-    {
-      icon: <Build color="primary" />,
-      text: "Reliable post-sale service and annual maintenance"
-    }
+    { icon: <LocationOn color="primary" />, text: "Oman-based expert team" },
+    { icon: <Settings color="primary" />, text: "Tailored solutions for all sectors" },
+    { icon: <Build color="primary" />, text: "Annual maintenance & support" },
   ];
 
   const services = [
-    { name: "Domestic RO Units", icon: <Home color="primary" /> },
-    { name: "Industrial RO Systems", icon: <Factory color="primary" /> },
-    { name: "Water Softeners", icon: <Water color="primary" /> },
-    { name: "UV Filtration", icon: <CheckCircle color="primary" /> },
-    { name: "Water Coolers", icon: <Business color="primary" /> }
+    { icon: <Home color="primary" />, name: "Domestic RO Units" },
+    { icon: <Factory color="primary" />, name: "Industrial RO Systems" },
+    { icon: <Water color="primary" />, name: "Water Softeners" },
+    { icon: <CheckCircle color="primary" />, name: "UV Filtration" },
+    { icon: <Business color="primary" />, name: "Water Coolers" },
   ];
 
   return (
-    <Box sx={{ py: 8, backgroundColor: '#f8fafc' }}>
+    <Box sx={{ py: 6, bgcolor: '#f8fafc' }}>
       <Container maxWidth="lg">
-        {/* Header */}
-        <Box sx={{ textAlign: 'center', mb: 6 }}>
-          <Chip 
-            label="ABOUT US" 
-            variant="outlined" 
-            color="primary"
-            sx={{ mb: 2, fontWeight: 600 }}
-          />
-          <Typography 
-            variant="h3" 
-            component="h2"
-            sx={{ 
-              fontWeight: 700, 
-              mb: 2,
-              color: 'primary.main'
-            }}
-          >
+        <Box textAlign="center" mb={5}>
+          <Chip label="ABOUT US" variant="outlined" color="primary" sx={{ mb: 1 }} />
+          <Typography variant="h4" fontWeight={700} color="primary.main">
             About Aquashield Oman
           </Typography>
         </Box>
 
-        <Grid container spacing={4}>
-          {/* Main Content */}
-          <Grid item xs={12} lg={8}>
-            <Paper elevation={2} sx={{ p: 4, mb: 4 }}>
-              <Typography 
-                variant="h6" 
-                sx={{ 
-                  mb: 3,
-                  fontWeight: 600,
-                  color: 'text.primary'
-                }}
-              >
-                Your Trusted Water Purification Partner
+        <Grid  spacing={4}>
+          {/* Left Column */}
+          <Grid item xs={12} md={8}>
+            <Card sx={{ p: { xs: 2, sm: 4 } }}>
+              <Typography variant="h6" fontWeight={600} mb={2}>
+                Trusted Water Purification Partner
               </Typography>
-              <Typography 
-                variant="body1" 
-                sx={{ 
-                  mb: 4,
-                  lineHeight: 1.8,
-                  color: 'text.secondary',
-                  fontSize: '1.1rem'
-                }}
-              >
-                Aquashield Oman is a trusted name in water purification and treatment 
-                solutions, catering to residential, commercial, and industrial needs. 
-                With years of experience and a commitment to quality, we provide 
-                cutting-edge water purification systems including Domestic RO Units, 
-                Industrial RO Systems, Softeners, UV Filtration, and Water Coolers.
+              <Typography variant="body1" color="text.secondary" mb={3} lineHeight={1.7}>
+                Aquashield Oman provides advanced water treatment systems for homes,
+                businesses, and industries. We offer Domestic & Industrial RO Systems,
+                Softeners, UV Filtration, and Water Coolers—all backed by expert service.
               </Typography>
-              
-              <Box sx={{ 
-                p: 3, 
-                backgroundColor: 'primary.main',
-                color: 'white',
-                borderRadius: 2,
-                mb: 4
-              }}>
-                <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                  Our Mission
-                </Typography>
-                <Typography variant="body1" sx={{ opacity: 0.9 }}>
-                  To ensure every drop you consume is safe, clean, and healthy.
+
+              <Box sx={{ p: 3, bgcolor: 'primary.main', borderRadius: 2, color: 'white', mb: 3 }}>
+                <Typography variant="h6" fontWeight={600}>Our Mission</Typography>
+                <Typography variant="body2" sx={{ opacity: 0.9 }}>
+                  Delivering safe, clean, and healthy water for every drop you use.
                 </Typography>
               </Box>
 
-              {/* Key Points */}
-              <Typography 
-                variant="h6" 
-                sx={{ 
-                  mb: 3,
-                  fontWeight: 600,
-                  color: 'text.primary'
-                }}
-              >
-                Why Choose Aquashield?
+              <Typography variant="h6" fontWeight={600} mb={2}>
+                Why Choose Us?
               </Typography>
-              <List>
-                {keyPoints.map((point, index) => (
-                  <ListItem key={index} sx={{ px: 0 }}>
-                    <ListItemIcon sx={{ minWidth: 40 }}>
-                      {point.icon}
-                    </ListItemIcon>
-                    <ListItemText 
-                      primary={point.text}
-                      primaryTypographyProps={{
-                        fontSize: '1.1rem',
-                        fontWeight: 500
-                      }}
-                    />
-                  </ListItem>
-                ))}
-              </List>
-            </Paper>
-          </Grid>
-
-          {/* Services Sidebar */}
-          <Grid item xs={12} lg={4}>
-            <Card elevation={2} sx={{ p: 3 }}>
-              <Typography 
-                variant="h6" 
-                sx={{ 
-                  mb: 3,
-                  fontWeight: 600,
-                  color: 'primary.main',
-                  textAlign: 'center'
-                }}
-              >
-                Our Services
-              </Typography>
-              <List>
-                {services.map((service, index) => (
-                  <ListItem key={index} sx={{ px: 0, py: 1 }}>
-                    <ListItemIcon sx={{ minWidth: 40 }}>
-                      {service.icon}
-                    </ListItemIcon>
-                    <ListItemText 
-                      primary={service.name}
-                      primaryTypographyProps={{
-                        fontWeight: 500,
-                        fontSize: '0.95rem'
-                      }}
-                    />
+              <List dense>
+                {keyPoints.map(({ icon, text }, i) => (
+                  <ListItem key={i} disableGutters>
+                    <ListItemIcon sx={{ minWidth: 32 }}>{icon}</ListItemIcon>
+                    <ListItemText primary={text} primaryTypographyProps={{ fontSize: '1rem' }} />
                   </ListItem>
                 ))}
               </List>
             </Card>
+          </Grid>
 
-            {/* Stats Card */}
-            <Card elevation={2} sx={{ p: 3, mt: 3, textAlign: 'center' }}>
-              <Support sx={{ fontSize: 48, color: 'primary.main', mb: 2 }} />
-              <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                24/7 Support
+          {/* Right Column */}
+          <Grid item xs={12} md={4}>
+            <Card sx={{ p: { xs: 2, sm: 3 }, mb: 3 }}>
+              <Typography
+                variant="h6"
+                color="primary.main"
+                textAlign="center"
+                fontWeight={600}
+                mb={3}
+              >
+                Our Services
               </Typography>
+
+              <Grid spacing={2}>
+                {services.map(({ icon, name }, i) => (
+                  <Grid item xs={6} sm={4} md={6} key={i}>
+                    <Card
+                      sx={{
+                        p: 2,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        textAlign: 'center',
+                        transition: '0.3s',
+                        '&:hover': {
+                          boxShadow: 4,
+                          transform: 'translateY(-4px)',
+                        },
+                      }}
+                    >
+                      <Box sx={{ fontSize: 40, mb: 1, color: 'primary.main' }}>
+                        {icon}
+                      </Box>
+                      <Typography variant="body2" fontWeight={500}>
+                        {name}
+                      </Typography>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+            </Card>
+
+            <Card sx={{ p: 3, textAlign: 'center' }}>
+              <Avatar sx={{ bgcolor: 'primary.main', mb: 2 }}>
+                <Support />
+              </Avatar>
+              <Typography variant="h6" fontWeight={600}>24/7 Support</Typography>
               <Typography variant="body2" color="text.secondary">
-                Round-the-clock customer support and maintenance services
+                Always here for assistance and maintenance.
               </Typography>
             </Card>
           </Grid>
         </Grid>
 
-        {/* Bottom CTA */}
-        <Box sx={{ textAlign: 'center', mt: 6 }}>
-          <Card 
-            sx={{ 
-              p: 4, 
+        <Box mt={6} textAlign="center">
+          <Card
+            sx={{
+              p: { xs: 3, sm: 4 },
               background: 'linear-gradient(135deg, #1976d2 0%, #42a5f5 100%)',
-              color: 'white'
+              color: 'white',
+              borderRadius: 3,
             }}
           >
-            <Typography variant="h5" sx={{ fontWeight: 600, mb: 2 }}>
+            <Typography variant="h5" fontWeight={600} mb={1}>
               Ready for Pure, Safe Water?
             </Typography>
-            <Typography variant="body1" sx={{ opacity: 0.9, maxWidth: 600, mx: 'auto' }}>
-              Contact Aquashield Oman today for a consultation and discover the perfect 
-              water purification solution for your needs.
+            <Typography variant="body2" sx={{ opacity: 0.9, maxWidth: 600, mx: 'auto' }}>
+              Get in touch with Aquashield Oman for the ideal water solution.
             </Typography>
           </Card>
         </Box>

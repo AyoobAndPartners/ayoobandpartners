@@ -16,10 +16,7 @@ import {
   Fade,
   Slide
 } from '@mui/material';
-import {
-  Water,
-  Close,
-} from '@mui/icons-material';
+import { Water, Menu, Close } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
 
 const navLinks = [
@@ -37,7 +34,6 @@ export default function ModernNavbar() {
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   const location = useLocation();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -53,22 +49,19 @@ export default function ModernNavbar() {
       position="sticky"
       elevation={0}
       sx={{
-        background: scrolled 
-          ? 'rgba(15, 23, 42, 0.95)' 
-          : 'rgba(15, 23, 42, 0.9)',
+        background: scrolled ? 'rgba(15, 23, 42, 0.95)' : 'rgba(15, 23, 42, 0.9)',
         backdropFilter: 'blur(20px)',
-        borderBottom: scrolled 
-          ? '1px solid rgba(148, 163, 184, 0.1)' 
+        borderBottom: scrolled
+          ? '1px solid rgba(148, 163, 184, 0.1)'
           : '1px solid rgba(148, 163, 184, 0.05)',
-        transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-        boxShadow: scrolled 
-          ? '0 8px 32px rgba(0, 0, 0, 0.12)' 
+        transition: 'all 0.3s ease',
+        boxShadow: scrolled
+          ? '0 8px 32px rgba(0, 0, 0, 0.12)'
           : '0 4px 20px rgba(0, 0, 0, 0.08)',
       }}
     >
       <Container maxWidth="xl">
         <Toolbar sx={{ justifyContent: 'space-between', py: 1, minHeight: '60px' }}>
-          
           {/* Logo */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
             <Box
@@ -81,11 +74,11 @@ export default function ModernNavbar() {
                 alignItems: 'center',
                 justifyContent: 'center',
                 boxShadow: '0 4px 16px rgba(59, 130, 246, 0.25)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                 '&:hover': {
                   transform: 'translateY(-1px) scale(1.02)',
                   boxShadow: '0 6px 20px rgba(59, 130, 246, 0.3)',
                 },
+                transition: 'all 0.3s ease',
               }}
             >
               <Water sx={{ color: 'white', fontSize: 20 }} />
@@ -103,20 +96,20 @@ export default function ModernNavbar() {
                 fontWeight: 600,
                 fontSize: '1.25rem',
                 letterSpacing: '-0.02em',
-                transition: 'all 0.3s ease',
                 '&:hover': {
                   transform: 'translateX(2px)',
                 },
+                transition: 'all 0.3s ease',
               }}
             >
               Aqua Shield Oman
             </Typography>
           </Box>
 
-          {/* Desktop Nav */}
+          {/* Desktop Menu */}
           {!isMobile && (
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              {navLinks.slice(0, -1).map((link) => (
+              {navLinks.map((link) => (
                 <Button
                   key={link.label}
                   component={Link}
@@ -131,7 +124,6 @@ export default function ModernNavbar() {
                     borderRadius: 2,
                     position: 'relative',
                     overflow: 'hidden',
-                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
                     '&::after': {
                       content: '""',
                       position: 'absolute',
@@ -142,7 +134,7 @@ export default function ModernNavbar() {
                       height: '2px',
                       background: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
                       borderRadius: '2px',
-                      transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                      transition: 'width 0.3s ease',
                     },
                     '&:hover': {
                       color: '#3b82f6',
@@ -150,6 +142,7 @@ export default function ModernNavbar() {
                         width: '80%',
                       },
                     },
+                    transition: 'all 0.3s ease',
                   }}
                 >
                   {link.label}
@@ -158,7 +151,19 @@ export default function ModernNavbar() {
             </Box>
           )}
 
-         
+          {/* Mobile Hamburger */}
+          {isMobile && (
+            <IconButton
+              onClick={() => setDrawerOpen(true)}
+              sx={{
+                color: '#e2e8f0',
+                border: '1px solid rgba(148, 163, 184, 0.2)',
+                borderRadius: 2,
+              }}
+            >
+              <Menu />
+            </IconButton>
+          )}
         </Toolbar>
       </Container>
 
@@ -175,9 +180,6 @@ export default function ModernNavbar() {
             border: '1px solid rgba(148, 163, 184, 0.1)',
           }
         }}
-        SlideProps={{
-          timeout: 400,
-        }}
       >
         <Box sx={{ p: 3 }}>
           <Slide direction="left" in={drawerOpen} timeout={300}>
@@ -190,73 +192,31 @@ export default function ModernNavbar() {
                   backgroundClip: 'text',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  letterSpacing: '-0.02em',
                 }}
               >
                 Menu
               </Typography>
-              <IconButton 
-                onClick={() => setDrawerOpen(false)} 
-                sx={{
-                  color: '#94a3b8',
-                  bgcolor: 'rgba(30, 41, 59, 0.5)',
-                  backdropFilter: 'blur(10px)',
-                  border: '1px solid rgba(148, 163, 184, 0.1)',
-                  '&:hover': {
-                    color: '#ef4444',
-                    bgcolor: 'rgba(239, 68, 68, 0.1)',
-                    borderColor: 'rgba(239, 68, 68, 0.3)',
-                    transform: 'rotate(90deg)',
-                  },
-                  transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                }}
-              >
+              <IconButton onClick={() => setDrawerOpen(false)} sx={{ color: '#94a3b8' }}>
                 <Close />
               </IconButton>
             </Box>
           </Slide>
-          
-          <List sx={{ '& .MuiListItem-root': { mb: 2 } }}>
+
+          <List>
             {navLinks.map((link, index) => (
-              <Fade 
-                key={link.label} 
-                in={drawerOpen} 
-                timeout={300} 
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
+              <Fade key={link.label} in={drawerOpen} timeout={300} style={{ transitionDelay: `${index * 80}ms` }}>
                 <ListItem
                   component={Link}
                   to={link.path}
                   onClick={() => setDrawerOpen(false)}
                   sx={{
-                    borderRadius: 3,
-                    bgcolor: isActiveLink(link.path) 
-                      ? 'rgba(59, 130, 246, 0.1)' 
-                      : 'transparent',
-                    border: '1px solid',
-                    borderColor: isActiveLink(link.path) 
-                      ? 'rgba(59, 130, 246, 0.3)' 
-                      : 'rgba(148, 163, 184, 0.1)',
-                    position: 'relative',
-                    overflow: 'hidden',
-                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                    '&::before': {
-                      content: '""',
-                      position: 'absolute',
-                      top: 0,
-                      left: '-100%',
-                      width: '100%',
-                      height: '100%',
-                      background: 'linear-gradient(90deg, transparent, rgba(59, 130, 246, 0.1), transparent)',
-                      transition: 'left 0.5s ease',
-                    },
+                    borderRadius: 2,
+                    px: 2,
+                    py: 1.5,
+                    mb: 1,
+                    bgcolor: isActiveLink(link.path) ? 'rgba(59,130,246,0.1)' : 'transparent',
                     '&:hover': {
-                      bgcolor: 'rgba(59, 130, 246, 0.1)',
-                      borderColor: 'rgba(59, 130, 246, 0.3)',
-                      transform: 'translateX(8px)',
-                      '&::before': {
-                        left: '100%',
-                      },
+                      bgcolor: 'rgba(59,130,246,0.1)',
                     },
                   }}
                 >
@@ -264,27 +224,13 @@ export default function ModernNavbar() {
                     primary={link.label}
                     primaryTypographyProps={{
                       fontWeight: isActiveLink(link.path) ? 600 : 500,
-                      fontSize: '1.1rem',
                       color: isActiveLink(link.path) ? '#3b82f6' : '#e2e8f0',
-                      transition: 'color 0.3s ease',
                     }}
                   />
-                  {isActiveLink(link.path) && (
-                    <Box
-                      sx={{
-                        width: 6,
-                        height: 6,
-                        borderRadius: '50%',
-                        background: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-                        boxShadow: '0 0 10px rgba(59, 130, 246, 0.5)',
-                      }}
-                    />
-                  )}
                 </ListItem>
               </Fade>
             ))}
           </List>
-
         </Box>
       </Drawer>
     </AppBar>
