@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Grid, Typography, Link, IconButton, Divider } from '@mui/material';
-import { Facebook, Instagram, LinkedIn, Email, Phone, LocationOn } from '@mui/icons-material';
+import { Facebook, Instagram, Email, Phone, LocationOn, Twitter } from '@mui/icons-material';
 
 export default function Footer() {
   return (
@@ -36,16 +36,18 @@ export default function Footer() {
               Contact
             </Typography>
             <Box display="flex" alignItems="center" gap={1} mb={1}>
-              <LocationOn fontSize="small" />
-              <Typography variant="body2">Al Khuwair, Muscat, Oman</Typography>
-            </Box>
+  <LocationOn fontSize="small" />
+  <Typography variant="body2" component="address" sx={{ m: 0 }}>
+    C.R. No: 1607355, P.O .BOX: 152, Post Code: 120, Sultanate of Oman
+  </Typography>
+</Box>
             <Box display="flex" alignItems="center" gap={1} mb={1}>
               <Phone fontSize="small" />
-              <Typography variant="body2">+968 9123 4567</Typography>
+              <Typography variant="body2">+968 9638 9104</Typography>
             </Box>
             <Box display="flex" alignItems="center" gap={1}>
               <Email fontSize="small" />
-              <Typography variant="body2">info@aquashieldoman.com</Typography>
+              <Typography variant="body2">sales@aquashieldoman.com</Typography>
             </Box>
           </Grid>
         </Grid>
@@ -55,18 +57,18 @@ export default function Footer() {
         {/* Social & Copyright */}
         <Box display="flex" justifyContent="space-between" flexWrap="wrap" alignItems="center">
           <Typography variant="body2" color="grey.500">
-            © {new Date().getFullYear()} AquaShield Oman. All rights reserved.
+            © {new Date().getFullYear()} Ayoob and Partners.<br/> All rights reserved.
           </Typography>
 
           <Box>
-            <IconButton color="inherit" href="#" sx={{ color: 'grey.400' }}>
+            <IconButton color="inherit" href="https://www.facebook.com/share/16xuKnXtqm/" sx={{ color: 'grey.400' }}>
               <Facebook />
             </IconButton>
-            <IconButton color="inherit" href="#" sx={{ color: 'grey.400' }}>
+            <IconButton color="inherit" href="https://www.instagram.com/aquashieldoman" sx={{ color: 'grey.400' }}>
               <Instagram />
             </IconButton>
-            <IconButton color="inherit" href="#" sx={{ color: 'grey.400' }}>
-              <LinkedIn />
+            <IconButton color="inherit" href="https://twitter.com/aquashieldoman" sx={{ color: 'grey.400' }}>
+              <Twitter />
             </IconButton>
           </Box>
         </Box>

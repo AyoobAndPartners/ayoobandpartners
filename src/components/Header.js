@@ -16,11 +16,14 @@ import {
   Fade,
   Slide
 } from '@mui/material';
-import { Water, Menu, Close } from '@mui/icons-material';
+import { Menu, Close } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import Logo from '../assets/LogoWithTextHorizontal.png';
 
 const navLinks = [
   { label: 'Home', path: '/' },
+  { label: 'Service', path: '/services' },
   { label: 'Products', path: '/products' },
   { label: 'Testimonials', path: '/testimonials' },
   { label: 'About', path: '/about' },
@@ -28,6 +31,9 @@ const navLinks = [
 ];
 
 export default function ModernNavbar() {
+
+  const navigate = useNavigate();
+
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const theme = useTheme();
@@ -49,7 +55,7 @@ export default function ModernNavbar() {
       position="sticky"
       elevation={0}
       sx={{
-        background: scrolled ? 'rgba(15, 23, 42, 0.95)' : 'rgba(15, 23, 42, 0.9)',
+        background: scrolled ? 'rgba(15, 23, 42, 0.12)' : 'rgba(15, 23, 42, 0)',
         backdropFilter: 'blur(20px)',
         borderBottom: scrolled
           ? '1px solid rgba(148, 163, 184, 0.1)'
@@ -60,93 +66,95 @@ export default function ModernNavbar() {
           : '0 4px 20px rgba(0, 0, 0, 0.08)',
       }}
     >
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" sx={{ maxWidth: '1200px' }}>
         <Toolbar sx={{ justifyContent: 'space-between', py: 1, minHeight: '60px' }}>
           {/* Logo */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5 }}>
-            <Box
-              sx={{
-                width: 36,
-                height: 36,
-                background: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-                borderRadius: 2,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 4px 16px rgba(59, 130, 246, 0.25)',
-                '&:hover': {
-                  transform: 'translateY(-1px) scale(1.02)',
-                  boxShadow: '0 6px 20px rgba(59, 130, 246, 0.3)',
-                },
-                transition: 'all 0.3s ease',
-              }}
-            >
-              <Water sx={{ color: 'white', fontSize: 20 }} />
-            </Box>
-            <Typography
-              variant="h6"
-              component={Link}
-              to="/"
-              sx={{
-                textDecoration: 'none',
-                background: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-                backgroundClip: 'text',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                fontWeight: 600,
-                fontSize: '1.25rem',
-                letterSpacing: '-0.02em',
-                '&:hover': {
-                  transform: 'translateX(2px)',
-                },
-                transition: 'all 0.3s ease',
-              }}
-            >
-              Aqua Shield Oman
-            </Typography>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, pl: 4 }}>
+           <Box
+  component="img"
+  src={Logo}
+  alt="Aqua Shield Oman Logo"
+  onClick={() => navigate('/')}
+  sx={{
+    width: 60,
+    height: 60,
+    objectFit: 'contain',
+    borderRadius: 1,
+    transform: 'scale(2.25)',
+    transformOrigin: 'center',
+    cursor: 'pointer'
+  }}
+/>
           </Box>
 
           {/* Desktop Menu */}
           {!isMobile && (
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center' }}>
               {navLinks.map((link) => (
-                <Button
-                  key={link.label}
-                  component={Link}
-                  to={link.path}
-                  sx={{
-                    color: isActiveLink(link.path) ? '#3b82f6' : '#e2e8f0',
-                    fontWeight: isActiveLink(link.path) ? 600 : 500,
-                    textTransform: 'none',
-                    fontSize: '0.9rem',
-                    px: 2,
-                    py: 1,
-                    borderRadius: 2,
-                    position: 'relative',
-                    overflow: 'hidden',
-                    '&::after': {
-                      content: '""',
-                      position: 'absolute',
-                      bottom: 0,
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      width: isActiveLink(link.path) ? '80%' : '0%',
-                      height: '2px',
+                link.label === 'Contact' ? (
+                  <Button
+                    key={link.label}
+                    component={Link}
+                    to={link.path}
+                    variant="contained"
+                    sx={{
                       background: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
-                      borderRadius: '2px',
-                      transition: 'width 0.3s ease',
-                    },
-                    '&:hover': {
-                      color: '#3b82f6',
-                      '&::after': {
-                        width: '80%',
+                      color: '#ffffff',
+                      fontWeight: 600,
+                      textTransform: 'none',
+                      fontSize: '0.9rem',
+                      px: 3,
+                      py: 1,
+                      borderRadius: '999px',
+                      boxShadow: '0 4px 20px rgba(59,130,246,0.2)',
+                      '&:hover': {
+                        background: 'linear-gradient(135deg, #2563eb, #0891b2)',
                       },
-                    },
-                    transition: 'all 0.3s ease',
-                  }}
-                >
-                  {link.label}
-                </Button>
+                      transition: 'all 0.3s ease',
+                      ml: 2
+                    }}
+                  >
+                    {link.label}
+                  </Button>
+                ) : (
+                  <Button
+                    key={link.label}
+                    component={Link}
+                    to={link.path}
+                    sx={{
+                      color: isActiveLink(link.path) ? '#3b82f6' : '#000911ff',
+                      fontWeight: isActiveLink(link.path) ? 600 : 500,
+                      textTransform: 'none',
+                      fontSize: '0.9rem',
+                      px: 2,
+                      py: 1,
+                      borderRadius: 2,
+                      position: 'relative',
+                      overflow: 'hidden',
+                      '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        bottom: 0,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        width: isActiveLink(link.path) ? '80%' : '0%',
+                        height: '2px',
+                        background: 'linear-gradient(135deg, #3b82f6, #06b6d4)',
+                        borderRadius: '2px',
+                        transition: 'width 0.3s ease',
+                      },
+                      '&:hover': {
+                        color: '#3b82f6',
+                        '&::after': {
+                          width: '80%',
+                        },
+                      },
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    {link.label}
+                  </Button>
+                )
               ))}
             </Box>
           )}
@@ -156,8 +164,8 @@ export default function ModernNavbar() {
             <IconButton
               onClick={() => setDrawerOpen(true)}
               sx={{
-                color: '#e2e8f0',
-                border: '1px solid rgba(148, 163, 184, 0.2)',
+                color: '#071f3fff',
+                border: '1px solid rgba(2, 11, 23, 0.94)',
                 borderRadius: 2,
               }}
             >

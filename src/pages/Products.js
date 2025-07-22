@@ -1,149 +1,93 @@
 import React from 'react';
 import {
-  Box,
+  Container,
+  Grid,
   Typography,
   Card,
-  Button,
-  Grid,
-  Container,
-  Chip
+  CardContent,
+  CardMedia,
 } from '@mui/material';
-import { Water, Factory, Settings, LocalDrink, Build, Handyman } from '@mui/icons-material';
 
 const products = [
   {
     id: 1,
-    name: "Domestic Water Purifiers",
-    desc: "Compact RO/UV/UF systems for home kitchens",
-    icon: <Water />,
-    category: "Domestic",
-    color: "#4CAF50"
+    name: 'Residential RO System',
+    description: 'High-quality water purification for homes using advanced reverse osmosis technology.',
+    image: 'https://images.pexels.com/photos/1459336/pexels-photo-1459336.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
   {
     id: 2,
-    name: "Industrial RO Systems",
-    desc: "High-capacity RO plants for commercial use",
-    icon: <Factory />,
-    category: "Industrial",
-    color: "#FF9800"
+    name: 'Commercial Water Purifier',
+    description: 'Designed for high-usage environments with multi-stage filtration.',
+    image: 'https://images.pexels.com/photos/6585765/pexels-photo-6585765.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
   {
     id: 3,
-    name: "Water Softeners",
-    desc: "Prevents scale & extends appliance life",
-    icon: <Settings />,
-    category: "Treatment",
-    color: "#9C27B0"
+    name: 'Industrial Filtration Unit',
+    description: 'Heavy-duty units for industrial-grade water purification and treatment.',
+    image: 'https://images.pexels.com/photos/5158183/pexels-photo-5158183.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
   {
     id: 4,
-    name: "Coolers & Dispensers",
-    desc: "RO-cooled dispensers for public spaces",
-    icon: <LocalDrink />,
-    category: "Cooling",
-    color: "#00BCD4"
+    name: 'UV Water Purifier',
+    description: 'Kills harmful microorganisms using ultraviolet light, chemical-free.',
+    image: 'https://images.pexels.com/photos/4107127/pexels-photo-4107127.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
   },
-  {
-    id: 5,
-    name: "Filters & Parts",
-    desc: "All filters, membranes, pumps & fittings",
-    icon: <Build />,
-    category: "Parts",
-    color: "#795548"
-  },
-  {
-    id: 6,
-    name: "Annual Maintenance",
-    desc: "Full AMC support & emergency service",
-    icon: <Handyman />,
-    category: "Service",
-    color: "#F44336"
-  }
 ];
 
-const Products = () => (
-  <Box sx={{ py: 8, backgroundColor: '#f7f9fc' }}>
-    <Container maxWidth="lg">
+export default function ProductPage() {
+
+  return (
+    <Container maxWidth="lg" sx={{ py: 6 }}>
       <Typography
         variant="h4"
+        fontWeight="bold"
         align="center"
-        fontWeight={700}
-        mb={5}
-        sx={{ color: '#1e2a38' }}
+        gutterBottom
+        sx={{ mb: 4 }}
       >
-        Our Solutions
+        Our Products
       </Typography>
-
-      <Grid spacing={3}>
-        {products.map(({ id, name, desc, icon, category, color }) => (
-          <Grid item xs={12} sm={6} md={4} key={id}>
+      <Grid container spacing={4} justifyContent="center">
+        {products.map((product) => (
+          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
             <Card
               sx={{
-                p: 3,
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
                 borderRadius: 3,
-                textAlign: 'center',
-                transition: '0.3s ease',
-                boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+                boxShadow: 3,
+                transition: 'transform 0.3s ease',
                 '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 6px 18px rgba(0,0,0,0.1)'
-                }
+                  transform: 'scale(1.03)',
+                },
               }}
             >
-              <Box
-                sx={{
-                  mb: 2,
-                  width: 60,
-                  height: 60,
-                  mx: 'auto',
-                  borderRadius: '50%',
-                  backgroundColor: color,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: 'white'
-                }}
-              >
-                {icon}
-              </Box>
-              <Typography variant="h6" fontWeight={600} gutterBottom>
-                {name}
-              </Typography>
-              <Typography variant="body2" color="text.secondary" mb={2}>
-                {desc}
-              </Typography>
-              <Chip
-                label={category}
-                size="small"
-                sx={{
-                  backgroundColor: color,
-                  color: 'white',
-                  fontWeight: 500
-                }}
+              <CardMedia
+                component="img"
+                height="200"
+                image={product.image}
+                alt={product.name}
+                sx={{ objectFit: 'cover' }}
               />
-              <Button
-                fullWidth
-                variant="contained"
-                size="medium"
-                sx={{
-                  mt: 3,
-                  textTransform: 'none',
-                  fontWeight: 600,
-                  backgroundColor: color,
-                  '&:hover': {
-                    backgroundColor: color,
-                    opacity: 0.9
-                  }
-                }}
-              >
-                Learn More
-              </Button>
+              <CardContent sx={{ flexGrow: 1 }}>
+                <Typography
+                  gutterBottom
+                  variant="h6"
+                  component="div"
+                  fontWeight="bold"
+                >
+                  {product.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {product.description}
+                </Typography>
+              </CardContent>
             </Card>
           </Grid>
         ))}
       </Grid>
     </Container>
-  </Box>
-);
-
-export default Products;
+  );
+}

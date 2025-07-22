@@ -1,128 +1,96 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
-  Container,
   Typography,
-  Button,
-  Stack,
-  useTheme,
-  useMediaQuery
+  Button
 } from '@mui/material';
-import { Phone, Email } from '@mui/icons-material';
+import bannerImage from '../assets/banner-img/Banner-img-1.jpg';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 export default function Banner() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
 
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        backgroundColor: '#0f172a',
-        color: '#fff',
-        display: 'flex',
-        alignItems: 'center',
-        px: 2,
-        py: isMobile ? 8 : 0,
-      }}
-    >
-      <Container maxWidth="md">
-        <Stack spacing={4} alignItems="center" textAlign="center">
+    <Box sx={{ backgroundColor: '#ffffff', color: '#111827', overflow: 'hidden' }}>
+      <Box
+        component="img"
+        src={bannerImage}
+        alt="AquaShield Purifier"
+        sx={{
+          width: '100vw',
+          height: 'auto',
+          display: 'block',
+          objectFit: 'cover',
+        }}
+      />
 
-          {/* Headline */}
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: 800,
-              fontSize: {
-                xs: '2rem',
-                sm: '2.5rem',
-                md: '3rem'
-              },
-              lineHeight: 1.2
-            }}
-          >
-            water purifier That Works
-          </Typography>
+      <Box
+        data-aos="fade-up"
+        sx={{
+          py: { xs: 6, md: 8 },
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          textAlign: 'center',
+          flexDirection: 'column',
+          px: 2,
+        }}
+      >
+        <Typography variant="h2" sx={{
+          fontWeight: 700,
+          fontFamily: `'Roboto Slab', 'Merriweather', 'Playfair Display', serif`,
+          fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
+          color: '#0B132B',
+          mb: 2
+        }}>
+          Ayoob and Partners Company
+        </Typography>
 
-          {/* Subheadline */}
-          <Typography
-            variant="body1"
-            sx={{
-              color: 'rgba(255,255,255,0.8)',
-              maxWidth: 600,
-              fontSize: {
-                xs: '1rem',
-                sm: '1.05rem',
-                md: '1.15rem'
-              },
-              lineHeight: 1.7
-            }}
-          >
-            Durable and professional water purifier solutions for homes, businesses, and industrial sites across Oman.
-          </Typography>
+        <Typography variant="h5" sx={{
+          fontWeight: 500,
+          fontSize: { xs: '1.1rem', sm: '1.3rem', md: '1.6rem' },
+          maxWidth: 700,
+          color: '#444',
+          lineHeight: 1.6,
+          mb: 3
+        }}>
+          Purity is not just about clean water; it's about crafting a healthier, more meaningful lifestyle.
+        </Typography>
 
-          {/* CTA Buttons */}
-          <Stack
-            direction={isMobile ? 'column' : 'row'}
-            spacing={2}
-            justifyContent="center"
-            sx={{ pt: 2, width: '100%' }}
-          >
-            <Button
-              variant="contained"
-              size="large"
-              startIcon={<Phone />}
-              fullWidth={isMobile}
-              href="tel:+968-your-number"
-              sx={{
-                backgroundColor: '#2563eb',
-                color: '#fff',
-                textTransform: 'none',
-                fontWeight: 600,
-                fontSize: '1rem',
-                '&:hover': {
-                  backgroundColor: '#1e40af'
-                }
-              }}
-            >
-              Call Now
-            </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          sx={{
+            textTransform: 'none',
+            borderRadius: '999px',
+            px: 4,
+            py: 1.5,
+            fontWeight: 600,
+            fontSize: '1rem',
+            mb: 4
+          }}
+          href="https://wa.me/96896389104?text=Hi%20AquaShield%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20a%20water%20purifier."
+          target="_blank"
+          rel="noopener noreferrer"
+          startIcon={<WhatsAppIcon />}
+        >
+          Get a Quote on WhatsApp
+        </Button>
 
-            <Button
-              variant="outlined"
-              size="large"
-              startIcon={<Email />}
-              fullWidth={isMobile}
-              sx={{
-                color: '#fff',
-                borderColor: 'rgba(255,255,255,0.3)',
-                textTransform: 'none',
-                fontWeight: 600,
-                fontSize: '1rem',
-                '&:hover': {
-                  borderColor: '#3b82f6',
-                  color: '#3b82f6',
-                }
-              }}
-            >
-              Get Free Quote
-            </Button>
-          </Stack>
-
-          {/* Trust Statement */}
-          <Typography
-            variant="caption"
-            sx={{
-              color: 'rgba(255,255,255,0.6)',
-              pt: 4,
-              fontSize: '0.9rem'
-            }}
-          >
-            ISO Certified • 5-Year Warranty • 10,000+ Happy Clients
-          </Typography>
-        </Stack>
-      </Container>
+        <Typography variant="body1" sx={{
+          color: '#6b7280',
+          maxWidth: 640,
+          fontSize: { xs: '1rem', sm: '1.1rem', md: '1.15rem' },
+          lineHeight: 1.8
+        }}>
+          At AquaShield, we believe in sustainable innovation — where every purifier combines timeless design with eco-conscious living, offering both health and harmony in your home.
+        </Typography>
+      </Box>
     </Box>
   );
 }

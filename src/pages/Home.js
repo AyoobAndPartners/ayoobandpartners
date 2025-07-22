@@ -5,7 +5,7 @@ import Features from '../components/Features';
 
 function Home() {
   return (
-    <Box>
+    <Box sx={{ scrollBehavior: 'smooth' }}>
       <Banner />
       <Features />
     </Box>

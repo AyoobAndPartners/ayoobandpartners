@@ -8,7 +8,7 @@ import {
   Box,
   Button
 } from '@mui/material';
-import { Droplets, Zap, Shield, Headphones } from 'lucide-react';
+import { Droplets, Zap, Headphones } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const features = [
@@ -21,11 +21,6 @@ const features = [
     icon: Zap,
     title: "Fast Installation",
     description: "Installed within 24 hours by experts."
-  },
-  {
-    icon: Shield,
-    title: "5-Year Warranty",
-    description: "Reliable warranty and free maintenance."
   },
   {
     icon: Headphones,
@@ -98,7 +93,7 @@ const Features = () => (
       </Grid>
 
       <Box textAlign="center" mt={8}>
-        <Link to="/products" style={{ textDecoration: 'none' }}>
+        <Link to="/services" style={{ textDecoration: 'none' }}>
           <Button
             variant="contained"
             size="large"
@@ -116,7 +111,7 @@ const Features = () => (
               }
             }}
           >
-            Explore Our Products
+            Explore Our Services
           </Button>
         </Link>
       </Box>
