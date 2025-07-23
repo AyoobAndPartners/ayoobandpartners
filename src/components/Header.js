@@ -19,7 +19,7 @@ import {
 import { Menu, Close } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../assets/LogoWithTextHorizontal.png';
+import Logo from '../assets/LogoWithTextAyoob.png';
 
 const navLinks = [
   { label: 'Home', path: '/' },
@@ -69,7 +69,7 @@ export default function ModernNavbar() {
       <Container maxWidth="xl" sx={{ maxWidth: '1200px' }}>
         <Toolbar sx={{ justifyContent: 'space-between', py: 1, minHeight: '60px' }}>
           {/* Logo */}
-          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, pl: 4 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, }}>
            <Box
   component="img"
   src={Logo}
@@ -80,7 +80,7 @@ export default function ModernNavbar() {
     height: 60,
     objectFit: 'contain',
     borderRadius: 1,
-    transform: 'scale(2.25)',
+    transform: 'scale(1.3)',
     transformOrigin: 'center',
     cursor: 'pointer'
   }}

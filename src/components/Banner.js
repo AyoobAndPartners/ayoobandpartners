@@ -17,21 +17,24 @@ export default function Banner() {
   return (
     <Box sx={{ backgroundColor: '#ffffff', color: '#111827', overflow: 'hidden' }}>
       <Box
-        component="img"
-        src={bannerImage}
-        alt="AquaShield Purifier"
-        sx={{
-          width: '100vw',
-          height: 'auto',
-          display: 'block',
-          objectFit: 'cover',
-        }}
-      />
+  component="img"
+  src={bannerImage}
+  alt="AquaShield Purifier"
+  sx={{
+    width: { xs: '90%', sm: '80%', md: '70%' }, // make it responsive and smaller
+    height: 'auto',
+    display: 'block',
+    objectFit: 'cover',
+    borderRadius: '24px', // rounded edges
+    mx: 'auto', // center image horizontally
+    mt: 5 // optional: margin-top
+  }}
+/>
 
       <Box
         data-aos="fade-up"
         sx={{
-          py: { xs: 6, md: 8 },
+          py: { xs: 6, md: 7 },
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -61,26 +64,30 @@ export default function Banner() {
           Purity is not just about clean water; it's about crafting a healthier, more meaningful lifestyle.
         </Typography>
 
-        <Button
-          variant="contained"
-          color="primary"
-          size="large"
-          sx={{
-            textTransform: 'none',
-            borderRadius: '999px',
-            px: 4,
-            py: 1.5,
-            fontWeight: 600,
-            fontSize: '1rem',
-            mb: 4
-          }}
-          href="https://wa.me/96896389104?text=Hi%20AquaShield%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20a%20water%20purifier."
-          target="_blank"
-          rel="noopener noreferrer"
-          startIcon={<WhatsAppIcon />}
-        >
-          Get a Quote on WhatsApp
-        </Button>
+       <Button
+  variant="contained"
+  size="large"
+  sx={{
+    textTransform: 'none',
+    backgroundColor: '#25D366', // WhatsApp green
+    '&:hover': {
+      backgroundColor: '#1DA851', // darker shade for hover
+    },
+    borderRadius: '999px',
+    px: 4,
+    py: 1.5,
+    fontWeight: 600,
+    fontSize: '1rem',
+    mb: 4
+  }}
+  href="https://wa.me/96896389104?text=Hi%20AquaShield%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20a%20water%20purifier."
+  target="_blank"
+  rel="noopener noreferrer"
+  startIcon={<WhatsAppIcon />}
+>
+  Get a Quote on WhatsApp
+</Button>
+
 
         <Typography variant="body1" sx={{
           color: '#6b7280',
