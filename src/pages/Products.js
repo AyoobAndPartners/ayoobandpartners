@@ -13,10 +13,10 @@ import {
   useMediaQuery,
 } from '@mui/material';
 
-import uvImg from '../assets/uv-img.jpeg';
+import uvImg from '../assets/uv-img.png';
 import roImg1 from '../assets/ro-omg-1.jpeg';
-import roImg2 from '../assets/ro-img-2.jpeg';
-import mediaImg from '../assets/media-img.jpeg';
+import roImg2 from '../assets/ro-img-2.png';
+import mediaImg from '../assets/media-img.png';
 
 const products = [
   {
