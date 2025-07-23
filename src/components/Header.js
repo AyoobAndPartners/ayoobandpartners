@@ -19,7 +19,7 @@ import {
 import { Menu, Close } from '@mui/icons-material';
 import { Link, useLocation } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import Logo from '../assets/LogoWithTextAyoob.png';
+import Logo from '../assets/LogoWithText.png';
 
 const navLinks = [
   { label: 'Home', path: '/' },
