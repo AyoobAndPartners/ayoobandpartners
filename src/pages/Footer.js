@@ -61,16 +61,37 @@ export default function Footer() {
           </Typography>
 
           <Box>
-            <IconButton color="inherit" href="https://www.facebook.com/share/16xuKnXtqm/" sx={{ color: 'grey.400' }}>
-              <Facebook />
-            </IconButton>
-            <IconButton color="inherit" href="https://www.instagram.com/aquashieldoman" sx={{ color: 'grey.400' }}>
-              <Instagram />
-            </IconButton>
-            <IconButton color="inherit" href="https://twitter.com/aquashieldoman" sx={{ color: 'grey.400' }}>
-              <Twitter />
-            </IconButton>
-          </Box>
+  <IconButton
+    color="inherit"
+    href="https://www.facebook.com/share/16xuKnXtqm/"
+    target="_blank"
+    rel="noopener noreferrer"
+    sx={{ color: 'grey.400' }}
+  >
+    <Facebook />
+  </IconButton>
+
+  <IconButton
+    color="inherit"
+    href="https://www.instagram.com/aquashieldoman"
+    target="_blank"
+    rel="noopener noreferrer"
+    sx={{ color: 'grey.400' }}
+  >
+    <Instagram />
+  </IconButton>
+
+  <IconButton
+    color="inherit"
+    href="https://twitter.com/aquashieldoman"
+    target="_blank"
+    rel="noopener noreferrer"
+    sx={{ color: 'grey.400' }}
+  >
+    <Twitter />
+  </IconButton>
+</Box>
+
         </Box>
       </Container>
     </Box>

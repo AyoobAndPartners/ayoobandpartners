@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import {
   Box,
   Typography,
@@ -152,14 +152,15 @@ export default function ServiceDetailPage() {
         <Button onClick={() => navigate(-1)} variant="outlined" startIcon={<ArrowBack />}>
           Back to Services
         </Button>
-
+        <Link to="/contact" style={{ textDecoration: 'none' }}>
         <Button
           variant="contained"
           color="primary"
-          onClick={() => alert('Contact / Booking Feature Coming Soon')}
         >
           Contact Us
         </Button>
+        </Link>
+
       </Box>
     </Container>
   );

@@ -167,12 +167,19 @@ export default function Contact() {
                   +968 9638 9104
                 </Typography>
               </Box>
-              <Box display="flex" alignItems="center" gap={2}>
-                <Email sx={{ color: '#0077b6' }} />
-                <Typography sx={{ color: '#4a5568' }}>
-                  sales@aquashieldoman.com
-                </Typography>
-              </Box>
+            <Box
+  component="a"
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@aquashieldoman.com&su=Product%20Enquiry&body=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20share%20more%20details."
+  target="_blank"
+  rel="noopener noreferrer"
+  display="flex"
+  alignItems="center"
+  gap={2}
+  sx={{ textDecoration: 'none', color: '#4a5568', cursor: 'pointer' }}
+>
+  <Email sx={{ color: '#0077b6' }} />
+  <Typography>sales@aquashieldoman.com</Typography>
+</Box>
             </Card>
           </Box>
         </Box>
