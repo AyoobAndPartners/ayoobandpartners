@@ -1,71 +1,65 @@
 import React from 'react';
 import {
-  Container,
-  Grid,
+  Box,
   Typography,
   Card,
   CardContent,
   CardMedia,
-  Box,
   Divider,
   Stack,
   useTheme,
   useMediaQuery,
 } from '@mui/material';
 
-import uvImg from '../assets/uv-img.png';
-import roImg1 from '../assets/ro-omg-1.jpeg';
-import roImg2 from '../assets/ro-img-2.png';
-import mediaImg from '../assets/media-img.png';
+import img6StageRo from '../assets/6StageRo.png';
+import img400GpdRo from '../assets/400GpdRo.png';
+import imgBRO1M from '../assets/BRO-1M.png';
+import imgBRO2M from '../assets/BRO-2M.png';
+import imgBRO3M from '../assets/bro-3M.png';
+import imgClackHead from '../assets/ClackHead.png';
 
 const products = [
   {
     id: 1,
-    name: 'Residential RO System',
-    description:
-      'Perfect for home use, this RO system delivers pure and safe drinking water by eliminating 99.9% of impurities including heavy metals, chlorine, and microbes.',
-    features: [
-      'Advanced RO + UV filtration',
-      'Smart auto shut-off',
-      'Wall-mounted design',
-    ],
-    image: roImg1,
+    name: 'AQUA Care 6 Stage RO System',
+    description: 'Compact RO system with 6-stage filtration for home use.',
+    features: ['CTO, GAC, PP filters', 'Integrated pressure gauge', 'Ideal for drinking water'],
+    image: img6StageRo,
   },
   {
     id: 2,
-    name: 'Commercial Water Purifier',
-    description:
-      'Engineered for commercial use, this purifier provides uninterrupted water flow with multi-layered purification — ideal for offices, restaurants, and institutions.',
-    features: [
-      'High-flow capacity',
-      'Digital control panel',
-      'Up to 50 L/hr output',
-    ],
-    image: roImg2,
+    name: 'AQUA Care 400 GPD RO System',
+    description: 'Commercial-grade RO purifier with high flow rate.',
+    features: ['400 gallons per day', 'Triple blue housing system', 'Heavy-duty design for business use'],
+    image: img400GpdRo,
   },
   {
     id: 3,
-    name: 'Industrial Filtration Unit',
-    description:
-      'Heavy-duty system tailored for factories and plants. Handles large volumes with high precision to ensure clean water across industrial applications.',
-    features: [
-      'Rust-proof stainless steel tank',
-      'Multi-stage filters',
-      'Flow rate up to 500 L/hr',
-    ],
-    image: mediaImg,
+    name: 'Brackish Water RO Plant 100000 GPD',
+    description: 'Industrial RO plant for large-scale water treatment.',
+    features: ['100,000 GPD capacity', 'Pre and post-filtration', 'Full control panel and automation'],
+    image: imgBRO1M,
   },
   {
     id: 4,
-    name: 'UV Water Purifier',
-    description:
-      'Eco-friendly solution that uses ultraviolet light to eliminate harmful pathogens without altering water chemistry. Ideal for areas with biological contamination.',
-    features: [
-      'Chemical-free purification',
-      'Long-lasting UV lamp',
-      'Compact and easy to maintain',
-    ],
-    image: uvImg,
+    name: 'Brackish Water RO Plant 20000 GPD',
+    description: 'Efficient RO system for medium industrial applications.',
+    features: ['20,000 GPD output', 'Robust skid frame', 'Pressure and flow regulation'],
+    image: imgBRO2M,
+  },
+  {
+    id: 5,
+    name: 'Brackish Water RO Plant 30000 GPD',
+    description: 'Compact industrial RO unit for moderate demand.',
+    features: ['30,000 GPD flow rate', 'Modular design', 'Durable and scalable setup'],
+    image: imgBRO3M,
+  },
+  {
+    id: 6,
+    name: 'Clack Head Softener Control Valve',
+    description: 'Digital valve head for water softening units.',
+    features: ['Programmable LCD display', 'Auto regeneration cycle', 'High efficiency operation'],
+    image: imgClackHead,
   },
 ];
 
@@ -74,7 +68,13 @@ export default function ProductPage() {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: 4, sm: 6 } }}>
+    <Box
+      sx={{
+        px: { xs: 2, sm: 4 },
+        py: { xs: 5, md: 8 },
+        background: 'linear-gradient(to bottom, #ffffff, #f4f7fb)',
+      }}
+    >
       {/* Section Header */}
       <Box sx={{ mb: 6, textAlign: 'center' }}>
         <Typography
@@ -99,6 +99,7 @@ export default function ProductPage() {
         >
           Explore our range of water purification and filtration solutions for every scale — residential, commercial, and industrial.
         </Typography>
+
         <Box
           sx={{
             mt: 3,
@@ -111,78 +112,97 @@ export default function ProductPage() {
         />
       </Box>
 
-      {/* Product Cards Grid */}
-      <Grid spacing={4} sx={{display: 'flex', flexDirection: 'column', gap: 4}}>
+      {/* Product Grid */}
+      <Box
+        sx={{
+          display: 'grid',
+          gridTemplateColumns: {
+            xs: 'repeat(1, 1fr)',
+            sm: 'repeat(2, 1fr)',
+            md: 'repeat(3, 1fr)',
+          },
+          gap: { xs: 2, sm: 4, md: 5 },
+        }}
+      >
         {products.map((product) => (
-          <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-            <Card
+          <Card
+            key={product.id}
+            elevation={3}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: '16px',
+              bgcolor: '#fff',
+              textAlign: 'center',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+              '&:hover': {
+                transform: 'translateY(-4px) scale(1.02)',
+                boxShadow: '0 10px 18px rgba(0,0,0,0.08)',
+              },
+            }}
+          >
+            <Box
               sx={{
-                height: '100%',
+                height: 180,
+                backgroundColor: '#f9f9f9',
+                borderTopLeftRadius: 16,
+                borderTopRightRadius: 16,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                p: 2,
+              }}
+            >
+              <CardMedia
+                component="img"
+                image={product.image}
+                alt={product.name}
+                sx={{
+                  maxHeight: '100%',
+                  maxWidth: '100%',
+                  objectFit: 'contain',
+                }}
+              />
+            </Box>
+            <CardContent
+              sx={{
+                px: isMobile ? 2 : 3,
+                pb: 3,
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-between',
-                borderRadius: 3,
-                boxShadow: 3,
-                transition: 'all 0.3s ease-in-out',
-                '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: 6,
-                },
+                minHeight: 200,
               }}
             >
-              <Box
+              <Typography
+                variant="subtitle2"
+                fontWeight={600}
                 sx={{
-                  height: 180,
-                  backgroundColor: '#f9f9f9',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  overflow: 'hidden',
-                  borderTopLeftRadius: 12,
-                  borderTopRightRadius: 12,
+                  fontSize: isMobile ? '0.85rem' : '1rem',
+                  color: theme.palette.grey[800],
                 }}
               >
-                <CardMedia
-                  component="img"
-                  image={product.image}
-                  alt={product.name}
-                  sx={{
-                    height: '100%',
-                    width: '100%',
-                    objectFit: 'contain',
-                    p: 2,
-                  }}
-                />
-              </Box>
-              <CardContent sx={{ p: isMobile ? 2 : 3, flexGrow: 1 }}>
-                <Typography
-                  variant="subtitle1"
-                  fontWeight={600}
-                  color="primary"
-                  gutterBottom
-                >
-                  {product.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
-                  {product.description}
-                </Typography>
-                <Divider sx={{ mb: 1 }} />
-                <Stack spacing={0.5}>
-                  {product.features.map((feature, index) => (
-                    <Typography
-                      variant="body2"
-                      color="text.secondary"
-                      key={index}
-                    >
-                      • {feature}
-                    </Typography>
-                  ))}
-                </Stack>
-              </CardContent>
-            </Card>
-          </Grid>
+                {product.name}
+              </Typography>
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                sx={{ mt: 1, fontSize: isMobile ? '0.75rem' : '0.9rem' }}
+              >
+                {product.description}
+              </Typography>
+              <Divider sx={{ my: 1 }} />
+              <Stack spacing={0.5} sx={{ mt: 1 }}>
+                {product.features.map((feature, idx) => (
+                  <Typography key={idx} variant="body2" color="text.secondary">
+                    • {feature}
+                  </Typography>
+                ))}
+              </Stack>
+            </CardContent>
+          </Card>
         ))}
-      </Grid>
-    </Container>
+      </Box>
+    </Box>
   );
 }

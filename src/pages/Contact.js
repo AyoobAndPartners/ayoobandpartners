@@ -9,6 +9,7 @@ import {
   Divider,
   Snackbar,
   Alert,
+  Link,
 } from '@mui/material';
 import { Email, Phone, LocationOn } from '@mui/icons-material';
 import emailjs from '@emailjs/browser';
@@ -161,12 +162,18 @@ export default function Contact() {
                   C.R. No: 1607355, P.O. BOX: 152, Post Code: 120, Sultanate of Oman
                 </Typography>
               </Box>
-              <Box display="flex" alignItems="center" gap={2} mb={2}>
-                <Phone sx={{ color: '#0077b6' }} />
-                <Typography sx={{ color: '#4a5568' }}>
-                  +968 9638 9104
-                </Typography>
-              </Box>
+              <Box display="flex" alignItems="center" gap={1} mb={1}>
+  <Phone fontSize="small" />
+  <Link
+    href="tel:+96896389104"
+    underline="hover"
+    color="inherit"
+    variant="body2"
+    sx={{ cursor: 'pointer' }}
+  >
+    +968 9638 9104
+  </Link>
+</Box>
             <Box
   component="a"
   href="https://mail.google.com/mail/?view=cm&fs=1&to=sales@aquashieldoman.com&su=Product%20Enquiry&body=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20share%20more%20details."
