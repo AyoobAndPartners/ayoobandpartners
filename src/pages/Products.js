@@ -158,7 +158,7 @@ export default function ProductPage() {
                 image={product.image}
                 alt={product.name}
                 sx={{
-                  maxHeight: 250,
+                  maxHeight: 210,
                   maxWidth: 200,
                   objectFit: 'cover',
                   mx: 'auto',
