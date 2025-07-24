@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Container, Grid, Typography, Link, IconButton, Divider } from '@mui/material';
-import { Facebook, Instagram, Email, Phone, LocationOn, Twitter } from '@mui/icons-material';
+import { Facebook, Instagram, Email, Phone, LocationOn, Twitter, WhatsApp } from '@mui/icons-material';
 
 export default function Footer() {
   return (
@@ -80,6 +80,15 @@ export default function Footer() {
           <Box>
   <IconButton
     color="inherit"
+    href="https://wa.me/96896389104?text=Hi%20AquaShield%2C%20I%20would%20like%20to%20get%20a%20quote%20for%20a%20water%20purifier."
+    target="_blank"
+    rel="noopener noreferrer"
+    sx={{ color: 'grey.400' }}
+  >
+    <WhatsApp />
+  </IconButton>
+  <IconButton
+    color="inherit"
     href="https://www.facebook.com/share/16xuKnXtqm/"
     target="_blank"
     rel="noopener noreferrer"
@@ -97,7 +106,6 @@ export default function Footer() {
   >
     <Instagram />
   </IconButton>
-
   <IconButton
     color="inherit"
     href="https://twitter.com/aquashieldoman"
@@ -106,6 +114,7 @@ export default function Footer() {
     sx={{ color: 'grey.400' }}
   >
     <Twitter />
+    
   </IconButton>
 </Box>
 
