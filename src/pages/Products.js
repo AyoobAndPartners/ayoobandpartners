@@ -21,14 +21,14 @@ import imgClackHead from '../assets/ClackHead.png';
 const products = [
   {
     id: 1,
-    name: 'AQUA Care 6 Stage RO System',
+    name: 'AQUA Shield 6 Stage RO System',
     description: 'Compact RO system with 6-stage filtration for home use.',
     features: ['CTO, GAC, PP filters', 'Integrated pressure gauge', 'Ideal for drinking water'],
     image: img6StageRo,
   },
   {
     id: 2,
-    name: 'AQUA Care 400 GPD RO System',
+    name: 'AQUA Shield 400 GPD RO System',
     description: 'Commercial-grade RO purifier with high flow rate.',
     features: ['400 gallons per day', 'Triple blue housing system', 'Heavy-duty design for business use'],
     image: img400GpdRo,
@@ -158,9 +158,10 @@ export default function ProductPage() {
                 image={product.image}
                 alt={product.name}
                 sx={{
-                  maxHeight: '100%',
-                  maxWidth: '100%',
-                  objectFit: 'contain',
+                  maxHeight: 250,
+                  maxWidth: 200,
+                  objectFit: 'cover',
+                  mx: 'auto',
                 }}
               />
             </Box>
