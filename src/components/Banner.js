@@ -46,7 +46,7 @@ export default function Banner() {
         <Typography variant="h2" sx={{
           fontWeight: 700,
           fontFamily: `'Roboto Slab', 'Merriweather', 'Playfair Display', serif`,
-          fontSize: { xs: '2rem', sm: '2.5rem', md: '3.5rem' },
+          fontSize: { xs: '1.5rem', sm: '2rem', md: '2rem' },
           color: '#0B132B',
           mb: 2
         }}>
