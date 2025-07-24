@@ -50,7 +50,7 @@ export default function Banner() {
           color: '#0B132B',
           mb: 2
         }}>
-          Ayoob and Partners Company
+          Ayoob and Partners LLC
         </Typography>
 
         <Typography variant="h5" sx={{
