@@ -11,7 +11,7 @@ import {
   useMediaQuery,
 } from '@mui/material';
 
-import img6StageRo from '../assets/6StageRo.png';
+import img6StageRo from '../assets/ro-img-2.png';
 import img400GpdRo from '../assets/400GpdRo.png';
 import imgBRO1M from '../assets/BRO-1M.png';
 import imgBRO2M from '../assets/BRO-2M.png';
